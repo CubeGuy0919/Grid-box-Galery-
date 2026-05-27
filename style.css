@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: minmax(span 220px, span 1fr) repeat(3, minmax(span 220px, span 1fr));
+    gap: 1.5em;
+    grid-auto-rows: auto;
+}
+
+.item {
+    background: hsl(207, 44%, 49%);
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: 1px solid hsl(207, 61%, 39%);
+    box-shadow: 10px 10px hsl(207, 54%, 65%);
+}
+
+.item img {
+    max-width: 80%;
+    min-width: 50%;
+}
+
+.highlighted-image-1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.highlighted-image-1 img {
+    width: 80%;
+    height: 80%;
+}
+
+.highlighted-image-2 {
+    grid-column: 3 / 5;
+    grid-row: 3 / 4;
+}
+
+.item:hover {
+    background: hsl(241, 48%, 53%);
+    border: 1px solid hsl(241, 49%, 47%);
+    box-shadow: 10px 10px hsl(241, 53%, 60%);
+    animation-name: bounceAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: both;
+}
+
+@keyframes bounceAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@media(max-width: 768px) {
+    .gallery {
+        grid-template-columns: minmax(span 50px, span 1fr);
+    }
+
+    .highlighted-image-1 {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    .highlighted-image-1 img {
+        width: 30%;
+        height: 30%;
+    }
+
+    .item img {
+        max-width: 30%;
+    }
+}
